@@ -1,16 +1,31 @@
-﻿#Requires AutoHotkey v2.0
+#Requires AutoHotkey v2.0
 #SingleInstance Force
 
 ; =======================================================
 ; 🚀 APP LAUNCHERS & WEBSITES
 ; =======================================================
 
-
-
-F1::Run("https://www.google.com", , "max")
-
-
-
+; 🧠 SMART F1: Search Selected Text OR Open Google
+F1::
+{
+    OldClip := A_Clipboard
+    A_Clipboard := "" ; Clear clipboard to detect change
+    Send "^c" ; Try to copy highlighted text
+    
+    if ClipWait(0.3) ; Wait 0.3s to see if text was copied
+    {
+        ; ✅ Text WAS selected -> Search it
+        Run "https://www.google.com/search?q=" . A_Clipboard
+        Sleep 500 
+        A_Clipboard := OldClip ; Restore original clipboard
+    }
+    else
+    {
+        ; ❌ NO text selected -> Open Google Home
+        A_Clipboard := OldClip ; Restore clipboard
+        Run("https://www.google.com", , "max")
+    }
+}
 
 F2::Run("https://chat.openai.com", , "max")
 
@@ -25,7 +40,7 @@ F3::
 
 F4::Run('"C:\Program Files\Notepad++\notepad++.exe"')
 F6::Run("https://mail.google.com", , "max")
-F7::Run("https://myaccount.google.com/u/1/security") ; Changed Send to Run for better reliability
+F7::Run("https://myaccount.google.com/u/1/security")
 F8::Run("https://drive.google.com")
 
 ; Alt + Key Shortcuts
@@ -35,6 +50,80 @@ F8::Run("https://drive.google.com")
 !e::Run('"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"')
 !c::Run("https://www.canva.com")
 !w::Run("https://docs.google.com/document/u/0/")
+
+
+; =======================================================
+; ❓ CHEAT SHEET (F12)
+; =======================================================
+!q::
+{
+    MsgBox("
+    (
+    🚀 LAUNCHERS
+    F1                - Google (Home OR Search Selected)
+    F2 - F8           - Apps & Webs
+    
+    ✍️ TEXT TOOLS
+    Ctrl+Shift+V      - Pure Paste (No Formatting)
+    Alt + T           - Cycle Case (Upper/Lower)
+    Type ';date'      - Insert YYYY-MM-DD
+    Type '@@'         - Insert Email
+
+    🛠️ POWER TOOLS
+    Alt + S           - Screen Search (Lens)
+    Ctrl + Space      - Pin Window (On Top)
+    Win + Scroll      - Ghost Mode (Transparency)
+    Alt + M           - Window Shade (Roll Up)
+    
+    🖱️ MOUSE TRICKS
+    Alt + L-Click     - Drag Window
+    Alt + R-Click     - Resize Window
+    Mid-Click (Top)   - Close (Safe for Chrome)
+    Scroll (Taskbar)  - Volume Control
+    )", "My AHK Shortcuts", "Iconi")
+}
+
+
+; =======================================================
+; ✍️ TEXT MANIPULATION TOOLS
+; =======================================================
+
+; 🧹 PURE PASTE (Strip Formatting) - Ctrl + Shift + V
+^+v::
+{
+    A_Clipboard := A_Clipboard ; Converting to itself strips formatting
+    Send "^v"
+}
+
+; 🔄 TEXT CASE CYCLER (Highlight -> Alt + T)
+!t::
+{
+    OldClip := A_Clipboard
+    A_Clipboard := ""
+    Send "^c"
+    if !ClipWait(0.5) {
+        A_Clipboard := OldClip
+        return
+    }
+    Str := A_Clipboard
+    if (Str = StrUpper(Str))
+        NewStr := StrLower(Str)
+    else if (Str = StrLower(Str))
+        NewStr := StrTitle(Str)
+    else
+        NewStr := StrUpper(Str)
+    A_Clipboard := NewStr
+    Send "^v"
+    Sleep 100
+    A_Clipboard := OldClip
+}
+
+; 📅 TEXT EXPANSION
+:*:;date:: ; Type ";date"
+{
+    Send FormatTime(, "yyyy-MM-dd")
+}
+:*:@@::myemailaddress@gmail.com ; Type "@@" for email
 
 
 ; =======================================================
@@ -52,14 +141,11 @@ F8::Run("https://drive.google.com")
     if WinWaitActive("Google Images", , 5) 
     {
         Sleep 1000 ; Wait for load
-
-        ; Tab navigation to find the Camera/Upload button
         Send "{Tab}"
         Sleep 50
         Send "{Tab}" 
         Sleep 50
-        Send "{Enter}" ; Open the upload box
-        
+        Send "{Enter}" ; Open upload box
         Sleep 500
         Send "^v" ; Paste image
     }
@@ -71,15 +157,15 @@ F8::Run("https://drive.google.com")
 ; =======================================================
 ^Space:: 
 {
-    if WinGetExStyle("A") & 0x8 ; Checks if it is already "Always On Top"
+    if WinGetExStyle("A") & 0x8 
     {
-        WinSetAlwaysOnTop 0, "A" ; Turn it OFF
-        SoundBeep 500, 200       ; Low beep
+        WinSetAlwaysOnTop 0, "A" 
+        SoundBeep 500, 200       
     }
     else
     {
-        WinSetAlwaysOnTop 1, "A" ; Turn it ON
-        SoundBeep 1000, 200      ; High beep
+        WinSetAlwaysOnTop 1, "A" 
+        SoundBeep 1000, 200      
     }
 }
 
@@ -96,11 +182,9 @@ F8::Run("https://drive.google.com")
     } catch {
         return
     }
-
     NewOpacity := CurrentOpacity - 25
     if (NewOpacity < 30)
         NewOpacity := 30
-
     WinSetTransparent NewOpacity, "A"
     ShowOpacityTooltip(NewOpacity)
 }
@@ -114,9 +198,7 @@ F8::Run("https://drive.google.com")
     } catch {
         return
     }
-
     NewOpacity := CurrentOpacity + 25
-
     if (NewOpacity >= 255) {
         WinSetTransparent "Off", "A"
         ShowOpacityTooltip(255)
@@ -137,7 +219,6 @@ ShowOpacityTooltip(level)
 ; =======================================================
 ; 🖱️ EASY WINDOW DRAG & RESIZE (Alt + Click)
 ; =======================================================
-
 !LButton:: ; Alt + Left Click to DRAG
 {
     try PostMessage(0xA1, 2, , , "A")
@@ -145,63 +226,44 @@ ShowOpacityTooltip(level)
 
 !RButton:: ; Alt + Right Click to RESIZE (Native)
 {
-    ; 0xA1 = Non-Client Click, 17 = Bottom-Right Corner
     try PostMessage(0xA1, 17, , , "A") 
 }
+
 
 ; =======================================================
 ; ✅ ROBUST LAZY CLOSE (Middle Click Title Bar)
 ; ⛔ EXCLUDES CHROME
 ; =======================================================
-#Requires AutoHotkey v2.0
-
 ~MButton::
 {
-    ; Get Mouse position in SCREEN coordinates (essential for HitTest)
     CoordMode "Mouse", "Screen" 
     MouseGetPos &X, &Y, &WinID
     
-    ; -------------------------------------------------------
-    ; 🛑 EXCEPTION: If Chrome, stop here.
-    ; This lets the native Middle Click close your tabs.
-    ; -------------------------------------------------------
     try {
         if WinGetProcessName("ahk_id " WinID) = "chrome.exe"
             return
     }
-
-    ; If the mouse is over the taskbar, do nothing (optional safety)
     if WinGetClass("ahk_id " WinID) = "Shell_TrayWnd"
         return
 
-    ; Send WM_NCHITTEST (0x84) to ask the window what is under the cursor
-    ; We pass the X and Y coordinates packed into the LPARAM
-    try 
-    {
+    try {
         MessageResult := SendMessage(0x84, 0, (Y << 16) | (X & 0xFFFF), , "ahk_id " WinID)
-    }
-    catch
-    {
-        return ; Handle cases where permission is denied (e.g., Admin windows)
+    } catch {
+        return
     }
 
-    ; Check if the result is 2 (HTCAPTION), which means "Title Bar"
     if (MessageResult == 2)
-    {
-        ; Send SC_CLOSE (0xF060) via WM_SYSCOMMAND (0x112)
         PostMessage(0x112, 0xF060, , , "ahk_id " WinID)
-    }
-}
+}   
+
 
 ; =======================================================
 ; 🔊 SONIC SCROLL (Hover Taskbar -> Volume)
 ; =======================================================
 #HotIf MouseIsOver("ahk_class Shell_TrayWnd") 
-
-WheelUp::Send "{Volume_Up}"     
+WheelUp::Send "{Volume_Up}"      
 WheelDown::Send "{Volume_Down}" 
 MButton::Send "{Volume_Mute}"   
-
 #HotIf 
 
 MouseIsOver(WinTitle) 
@@ -219,7 +281,6 @@ WindowHeights := Map()
 !m:: 
 {
     WinID := WinExist("A") 
-    
     if WindowHeights.Has(WinID) 
     {
         WinMove , , , WindowHeights[WinID], "ahk_id " . WinID
@@ -232,4 +293,3 @@ WindowHeights := Map()
         WinMove , , , 30, "ahk_id " . WinID 
     }
 }
-
