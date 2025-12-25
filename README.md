@@ -153,20 +153,40 @@ When I'm not coding, you can find me reading historical non-fiction, playing che
 </details>
 
 
-
-
-<h3>📺 Featured Video</h3>
-<p align="center">
-  <a href="https://www.youtube.com/watch?v=FcquuDlG3NA">
-    <img src="https://img.youtube.com/vi/FcquuDlG3NA/maxresdefault.jpg" width="100%" alt="Ekjon Komolalebu 5/9">
-  </a>
-</p>
-
-
-
-<h3>📺 Featured Video</h3>
-<p align="center">
-  <a href="https://www.youtube.com/watch?v=FcquuDlG3NA">
-    <img src="https://img.youtube.com/vi/FcquuDlG3NA/maxresdefault.jpg" width="100%" alt="Ekjon Komolalebu 5/9">
-  </a>
-</p>
+<h3>📺 My Latest Videos</h3>
+<table width="100%">
+  <tr>
+    <td width="33%" align="center">
+      <a href="https://www.youtube.com/watch?v=FcquuDlG3NA">
+        <img src="https://img.youtube.com/vi/FcquuDlG3NA/mqdefault.jpg" width="100%" alt="Video 1">
+      </a>
+    </td>
+    <td width="33%" align="center">
+      <a href="https://www.youtube.com/watch?v=acOFq8IoqFY">
+        <img src="https://img.youtube.com/vi/acOFq8IoqFY/mqdefault.jpg" width="100%" alt="Video 2">
+      </a>
+    </td>
+    <td width="33%" align="center">
+      <a href="https://www.youtube.com/watch?v=ewCrFYtAePk">
+        <img src="https://img.youtube.com/vi/ewCrFYtAePk/mqdefault.jpg" width="100%" alt="Video 3">
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td width="33%" align="center">
+      <a href="https://www.youtube.com/watch?v=bUeHXNAbnNM">
+        <img src="https://img.youtube.com/vi/bUeHXNAbnNM/mqdefault.jpg" width="100%" alt="Video 4">
+      </a>
+    </td>
+    <td width="33%" align="center">
+      <a href="https://www.youtube.com/watch?v=hmwqjwZ-tVQ">
+        <img src="https://img.youtube.com/vi/hmwqjwZ-tVQ/mqdefault.jpg" width="100%" alt="Video 5">
+      </a>
+    </td>
+    <td width="33%" align="center">
+      <a href="https://www.youtube.com/watch?v=HMh6FwOVMgM">
+        <img src="https://img.youtube.com/vi/HMh6FwOVMgM/mqdefault.jpg" width="100%" alt="Video 6">
+      </a>
+    </td>
+  </tr>
+</table>
