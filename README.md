@@ -161,3 +161,12 @@ When I'm not coding, you can find me reading historical non-fiction, playing che
     <img src="https://img.youtube.com/vi/FcquuDlG3NA/maxresdefault.jpg" width="100%" alt="Ekjon Komolalebu 5/9">
   </a>
 </p>
+
+
+
+<h3>📺 Featured Video</h3>
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=FcquuDlG3NA">
+    <img src="https://img.youtube.com/vi/FcquuDlG3NA/maxresdefault.jpg" width="100%" alt="Ekjon Komolalebu 5/9">
+  </a>
+</p>
