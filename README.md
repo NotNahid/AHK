@@ -43,3 +43,22 @@
 
 ![Love](https://img.shields.io/badge/Made%20with-Love-ff0000?style=for-the-badge&logo=heart&logoColor=white)
 ![Coffee](https://img.shields.io/badge/Fueled%20by-Coffee-6F4E37?style=for-the-badge&logo=coffeescript&logoColor=white)
+
+
+
+
+![Identity Fab](https://xsgames.co/randomusers/avatar.php?g=male)
+
+![BTC Live](https://img.shields.io/badge/dynamic/json?url=https://api.coincap.io/v2/assets/bitcoin&query=$.data.priceUsd&label=BTC%20Live&prefix=$&color=orange&style=for-the-badge&logo=bitcoin)
+
+![Random Intel](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=33FF00&width=435&lines=Fetching+Useless+Intel...;Did+you+know?;Cats+sleep+70%25+of+their+lives.)
+
+![Dev Humor](https://jokesvg.ztco.workers.dev/joke)
+
+![Visual Stimulus](https://loremflickr.com/400/300/dog)
+
+![Feline Intel](https://img.shields.io/badge/dynamic/json?url=https://catfact.ninja/fact&query=$.fact&label=Feline%20Intel&color=pink&style=flat-square)
+
+![Guidance System](https://img.shields.io/badge/dynamic/json?url=https://yesno.wtf/api&query=$.answer&label=Binary%20Oracle&color=blueviolet&style=for-the-badge)
+
+![Binary Oracle](https://img.shields.io/badge/dynamic/json?url=https://yesno.wtf/api&query=$.answer&label=Decision&color=red)
