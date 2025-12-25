@@ -36,7 +36,7 @@
 
 ![Spotify](https://spotify-github-profile.vercel.app/api/view?uid=31ds7...&cover_image=true&theme=novatorem&bar_color=53b14f&bar_color_cover=false)
 
-![YouTube](https://img.shields.io/youtube/channel/subscribers/UCxxxxxxxxxxxx?style=for-the-badge&logo=youtube&logoColor=white)
+![YouTube](https://img.shields.io/youtube/channel/subscribers/UCsCRE5anC1G6Lwwd4mfTjQQ?style=for-the-badge&logo=youtube&logoColor=white)
 
 
 ![Visitors](https://visitor-badge.laobi.icu/badge?page_id=NotNahid.README)
