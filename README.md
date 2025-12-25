@@ -151,3 +151,13 @@ When I'm not coding, you can find me reading historical non-fiction, playing che
     <a href="http://www.github.com/NotNahid"><img src="https://github-readme-streak-stats.herokuapp.com/?user=NotNahid&stroke=ffffff&background=1c1917&ring=10b981&fire=10b981&currStreakNum=ffffff&currStreakLabel=10b981&sideNums=ffffff&sideLabels=ffffff&dates=ffffff&hide_border=true" alt="Streak stats" /></a>
     <br />
 </details>
+
+
+
+
+<h3>📺 Featured Video</h3>
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=FcquuDlG3NA">
+    <img src="https://img.youtube.com/vi/FcquuDlG3NA/maxresdefault.jpg" width="100%" alt="Ekjon Komolalebu 5/9">
+  </a>
+</p>
